@@ -1,7 +1,7 @@
 # Personality Predictor API
 
-🚀 **Live API Endpoint:** [https://personality-predictor-production-e454.up.railway.app](https://personality-predictor-production-e454.up.railway.app)
-📖 **API Documentation (Swagger UI):** [https://personality-predictor-production-e454.up.railway.app/docs](https://personality-predictor-production-e454.up.railway.app/docs)
+ **Live API Endpoint:** [https://personality-predictor-production-e454.up.railway.app](https://personality-predictor-production-e454.up.railway.app)
+ **API Documentation (Swagger UI):** [https://personality-predictor-production-e454.up.railway.app/docs](https://personality-predictor-production-e454.up.railway.app/docs)
 
 ## Quick Start
 
