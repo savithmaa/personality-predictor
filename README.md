@@ -1,5 +1,7 @@
 # Personality Predictor API
 
+🚀 **Live API Endpoint:** [https://personality-predictor-production-e454.up.railway.app](https://personality-predictor-production-e454.up.railway.app)
+📖 **API Documentation (Swagger UI):** [https://personality-predictor-production-e454.up.railway.app/docs](https://personality-predictor-production-e454.up.railway.app/docs)
 
 ## Quick Start
 
@@ -16,40 +18,44 @@ docker build -t personality-api .
 docker run -p 8000:8000 personality-api
 ```
 
-### Deploy to Render (free)
+### Deploy to Railway (Current Deployment)
 1. Push this repo to GitHub
-2. render.com → New → Web Service → connect repo
-3. Runtime = Docker → Deploy
-4. Get your public URL → done
+2. Go to **Railway.app** → New Project → Deploy from GitHub repo
+3. Railway will automatically detect the Dockerfile and build the project
+4. Go to Networking → Generate Domain
 
 ## API
 
 ### POST /predict
-```json
-{
-  "Time_spent_Alone": 7.0,
-  "Stage_fear": "Yes",
-  "Social_event_attendance": 2.0,
-  "Going_outside": 2.0,
-  "Drained_after_socializing": "Yes",
-  "Friends_circle_size": 3.0,
-  "Post_frequency": 2.0
-}
+```bash
+curl -X POST "https://personality-predictor-production-e454.up.railway.app/predict" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "Time_spent_Alone": 7.0,
+    "Stage_fear": "Yes",
+    "Social_event_attendance": 2.0,
+    "Going_outside": 2.0,
+    "Drained_after_socializing": "Yes",
+    "Friends_circle_size": 3.0,
+    "Post_frequency": 2.0
+  }'
 ```
 
 Response:
 ```json
 {
   "prediction": "Introvert",
-  "confidence": 0.934,
-  "probabilities": {"Introvert": 0.934, "Extrovert": 0.066},
+  "confidence": 0.8462,
+  "probabilities": {
+    "Introvert": 0.8462,
+    "Extrovert": 0.1538
+  },
   "model_version": "1.0.0"
 }
 ```
 
 ## Run Tests
 ```bash
-# rename app_v2.py to app.py first
 pytest test_app.py -v
 ```
 
@@ -60,6 +66,5 @@ pytest test_app.py -v
 | `personality_model.pkl` | Trained pipeline (all preprocessing inside) |
 | `feature_names.pkl` | Feature order |
 | `Dockerfile` | Container definition |
-| `render.yaml` | Render deployment config |
 | `test_app.py` | Pytest unit tests |
 | `requirements.txt` | Dependencies |
