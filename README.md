@@ -1,8 +1,5 @@
 # Personality Predictor API
 
-Random Forest classifier predicting Introvert / Extrovert from behavioural features.
-
-**Test Accuracy:** 92.4% | **ROC-AUC:** 0.956 | **Brier Score:** 0.067
 
 ## Quick Start
 
