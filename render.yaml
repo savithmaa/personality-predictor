@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: personality-predictor
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
